@@ -4,5 +4,6 @@ int factorial(int a,int b){
     return 0;
 }
 int main(){
-    return 0;
+    cout<<"hi";
+return 0;
 }
