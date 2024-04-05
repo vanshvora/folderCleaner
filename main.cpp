@@ -49,6 +49,25 @@ vector<DATA> input(string inputfile) {
      ip.close();
     return data;
 }
+void clean(vector<DATA>& data,int M,int A){
+for(int i=1;i<data.size();i++){
+    if(data[i].accessed<A){
+        deletefile(data[i]);
+        continue;
+    }
+    if(FileEmpty(data[i].path)){
+        deletefile(data[i]);
+        break;
+    }
+    int m;
+    m=getnoofmonthold(data[i]);
+    if(m>M){
+        deletefile(data[i]);
+    }
+  
+}
+}
+
 int main() {
     vector<DATA> data=input("file.txt");
     
