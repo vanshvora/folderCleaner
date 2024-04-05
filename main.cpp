@@ -4,8 +4,8 @@
 #include <fstream>
 #include <sstream>
 #include<cstdio>
+#include<ctime>
 using namespace std;
-
 class DATA {
 public:
     string foldername;
