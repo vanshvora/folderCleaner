@@ -16,9 +16,7 @@ public:
     int year;
     int accessed;
 };
-void deletefile(DATA a){
-      remove(a.path.c_str());
-}
+
 vector<DATA> input(string inputfile) {
     vector<DATA> data;
     ifstream ip(inputfile);
