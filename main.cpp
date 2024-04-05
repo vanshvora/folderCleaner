@@ -64,7 +64,19 @@ for(int i=1;i<data.size();i++){
     if(m>M){
         deletefile(data[i]);
     }
-  
+  for(int j=i+1;j<data.size();j++){
+        if(data[i].filename==data[j].filename){
+          if(comparedate(data[i],data[j])){
+             deletefile(data[i]);
+             break;
+          }
+          else{
+            deletefile(data[j]);
+            break;
+          }
+
+        }
+    }
 }
 }
 
