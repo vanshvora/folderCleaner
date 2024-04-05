@@ -25,6 +25,47 @@ bool comparedate(DATA a,DATA b){
        }
        return a.date<b.date;
 }
+int getnoofmonthold(DATA a){
+time_t currentTime = time(nullptr);
+tm current_tm = *localtime(&currentTime);
+int year = current_tm.tm_year + 1900; 
+int month = current_tm.tm_mon + 1;
+int yeardiff,monthdiff;
+yeardiff=year-a.year;
+monthdiff=month-a.month;
+return a.month + 12*yeardiff;
+}
+
+void clean(vector<DATA>& data,int M,int A){
+for(int i=1;i<data.size();i++){
+    if(data[i].accessed<A){
+        deletefile(data[i]);
+        continue;
+    }
+    if(FileEmpty(data[i].path)){
+        deletefile(data[i]);
+        break;
+    }
+    int m;
+    m=getnoofmonthold(data[i]);
+    if(m>M){
+        deletefile(data[i]);
+    }
+  for(int j=i+1;j<data.size();j++){
+        if(data[i].filename==data[j].filename){
+          if(comparedate(data[i],data[j])){
+             deletefile(data[i]);
+             break;
+          }
+          else{
+            deletefile(data[j]);
+            break;
+          }
+
+        }
+    }
+}
+}
 vector<DATA> input(string inputfile) {
     vector<DATA> data;
     ifstream ip(inputfile);
@@ -57,37 +98,6 @@ vector<DATA> input(string inputfile) {
      ip.close();
     return data;
 }
-void clean(vector<DATA>& data,int M,int A){
-for(int i=1;i<data.size();i++){
-    if(data[i].accessed<A){
-        deletefile(data[i]);
-        continue;
-    }
-    if(FileEmpty(data[i].path)){
-        deletefile(data[i]);
-        break;
-    }
-    int m;
-    m=getnoofmonthold(data[i]);
-    if(m>M){
-        deletefile(data[i]);
-    }
-  for(int j=i+1;j<data.size();j++){
-        if(data[i].filename==data[j].filename){
-          if(comparedate(data[i],data[j])){
-             deletefile(data[i]);
-             break;
-          }
-          else{
-            deletefile(data[j]);
-            break;
-          }
-
-        }
-    }
-}
-}
-
 int main() {
     vector<DATA> data=input("file.txt");
     
