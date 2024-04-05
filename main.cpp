@@ -16,6 +16,18 @@ public:
     int year;
     int accessed;
 };
+void deletefile(DATA a){
+    int i;
+      i=remove(a.path.c_str());
+      if(i==0){
+        cout<<"file "<<a.filename<<" is deleted successfully"<<endl;
+        
+      }
+}
+bool FileEmpty(string& Path) {
+    ifstream file(Path,ios::ate);
+    return file.tellg() == 0;
+}
 bool comparedate(DATA a,DATA b){
        if(a.year!=b.year){
         return a.year<b.year;
