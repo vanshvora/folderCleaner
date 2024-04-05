@@ -111,7 +111,13 @@ vector<DATA> input(string inputfile) {
     return data;
 }
 int main() {
-    vector<DATA> data=input("file.txt");
-    
+    int minaccess,monthold;
+    string inputfile;
+    cin>>inputfile;
+    cout<<"Enter no of month old and min time accessed files to be deleted:";
+    cin>>monthold>>minaccess;
+    vector<DATA> data = input(inputfile);
+    clean(data,monthold,minaccess);
+    cout<<"your folder:"<<data[0].foldername<<"is cleaned ";
     return 0;
 }
