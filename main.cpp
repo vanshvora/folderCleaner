@@ -19,38 +19,36 @@ public:
 void deletefile(DATA a){
       remove(a.path.c_str());
 }
-vector<DATA> input(string inputfile){
-     vector<DATA> data;
+vector<DATA> input(string inputfile) {
+    vector<DATA> data;
     ifstream ip(inputfile);
-
-   
-
+     
+    if (!ip.is_open()) {
+        cout << "Error: Unable to open file: " << inputfile << endl;
+        return data;
+    }
+    DATA b;
+    getline(ip,b.foldername);
+    data.push_back(b);
     string line;
     while (getline(ip, line)) {
         DATA a;
-        string date,month,year,access;
+        string date, month, year, access;
         stringstream word(line);
-
+        getline(word,a.filename,',');
         getline(word, a.path, ',');
         getline(word, date, '/');
         a.date = stoi(date);
-        getline(word,month, '/');
+        getline(word, month, '/');
         a.month = stoi(month);
-        getline(word,year, ',');
+        getline(word, year, ',');
         a.year = stoi(year);
-        getline(word,access);
+        getline(word, access);
         a.accessed = stoi(access);
+
         data.push_back(a);
     }
-cout<<"hi";
-    for (int i=0;i<data.size();i++) {
-        cout<<"in";
-        cout << "Path: " << data[i].path << ", Date: " << data[i].date << ", Month: " << data[i].month << ", Year: " << data[i].year
-             << ", Times Opened: " << data[i].accessed << endl;
-    }
-cout<<"by";
-
-    ip.close();
+     ip.close();
     return data;
 }
 int main() {
