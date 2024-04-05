@@ -16,7 +16,15 @@ public:
     int year;
     int accessed;
 };
-
+bool comparedate(DATA a,DATA b){
+       if(a.year!=b.year){
+        return a.year<b.year;
+       }
+       if(a.month!=b.month){
+        return a.month<b.month;
+       }
+       return a.date<b.date;
+}
 vector<DATA> input(string inputfile) {
     vector<DATA> data;
     ifstream ip(inputfile);
