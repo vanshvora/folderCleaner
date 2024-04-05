@@ -8,6 +8,8 @@ using namespace std;
 
 class DATA {
 public:
+    string foldername;
+    string filename;
     string path;
     int date;
     int month;
