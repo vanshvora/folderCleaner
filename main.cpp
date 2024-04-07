@@ -18,15 +18,8 @@ public:
 DATA* head=nullptr;
 DATA* tail=nullptr;
 void deletefile(string path,string filename){
-    int i;
-      i=remove(path.c_str());
-      if(i==0){
-        cout<<"file "<<filename<<" is deleted successfully"<<endl;
-        
-      }
-      else{
-        cout<<"file "<<filename<<" is  not deleted successfully"<<endl;
-      }
+      remove(path.c_str());
+      
 }
 bool FileEmpty(string& Path) {
     ifstream file(Path,ios::ate);
@@ -58,16 +51,13 @@ while(temp!=NULL){
     m=getnoofmonthold(temp->year,temp->month);
     if(temp->accessed<A){
         deletefile(temp->path,temp->filename);
-        cout<<"in access"<<endl;
     }
     else if(FileEmpty(temp->path)){
         deletefile(temp->path,temp->filename);
-        cout<<"in empty"<<endl;
     }
    
     else if(m>M){
         deletefile(temp->path,temp->filename);
-        cout<<"in month"<<temp->path<<endl;
     }
     else {
     DATA* temp2=temp->next;
@@ -76,12 +66,10 @@ while(temp!=NULL){
         if(temp->filename==temp2->filename){
           if(comparedate(*temp,*temp2)){
              deletefile(temp->path,temp->filename);
-            cout<<"rebundant 1"<<endl;
           }
           else{
             deletefile(temp2->path,temp2->filename);
             temp3->next=temp2->next;
-           cout<<"rebundant 2"<<endl;
           }
 
         }
@@ -96,6 +84,7 @@ while(temp!=NULL){
 int main() {
    
     string inputfile;
+    cout<<"Enter the input file: "; 
     cin>>inputfile;
     
     
@@ -134,18 +123,19 @@ int main() {
       
     }
       DATA* temp=head;
-
+       cout<<"This is data stored in input file: "<<endl;
       while(temp!=NULL) {
-        cout <<"File Name: "<<temp->filename<< ", Path: " << temp->path << ", Date: " << temp->date << "/" << temp->month << "/" << temp->year
+        cout <<"File Name: "<<temp->filename<<  ", Date: " << temp->date << "/" << temp->month << "/" << temp->year
              << ", Times Opened: " << temp->accessed << endl;
              temp=temp->next;
     }
  
     ip.close();
     int minaccess,monthold;
-    cout<<"Enter no of month old and min time accessed files to be deleted:";
-    cin>>monthold>>minaccess;
-
+    cout<<"Enter Minimum no of month old files to be deleted: ";
+    cin>>monthold;
+    cout<<"Enter Minimum no of time accessed files to be deleted:";
+    cin>>minaccess;
     clean(monthold,minaccess);
     cout<<"your folder: "<<foldername<<" is cleaned ";
     return 0;
