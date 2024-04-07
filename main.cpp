@@ -17,7 +17,7 @@ public:
 };
 DATA* head=nullptr;
 DATA* tail=nullptr;
-void deletefile(string path,string filename){
+void deletefile(string path){
       remove(path.c_str());
       
 }
@@ -50,14 +50,14 @@ while(temp!=NULL){
     int m;
     m=getnoofmonthold(temp->year,temp->month);
     if(temp->accessed<A){
-        deletefile(temp->path,temp->filename);
+        deletefile(temp->path);
     }
     else if(FileEmpty(temp->path)){
-        deletefile(temp->path,temp->filename);
+        deletefile(temp->path);
     }
    
     else if(m>M){
-        deletefile(temp->path,temp->filename);
+        deletefile(temp->path);
     }
     else {
     DATA* temp2=temp->next;
@@ -65,10 +65,10 @@ while(temp!=NULL){
     while(temp2!=NULL){
         if(temp->filename==temp2->filename){
           if(comparedate(*temp,*temp2)){
-             deletefile(temp->path,temp->filename);
+             deletefile(temp->path);
           }
           else{
-            deletefile(temp2->path,temp2->filename);
+            deletefile(temp2->path);
             temp3->next=temp2->next;
           }
 
