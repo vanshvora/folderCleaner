@@ -11,3 +11,6 @@ So it deletes file1,file3,file4 and file5
 
 
 file.txt is input file
+
+module.cpp is main.cpp with integrated gui 
+and foldercleaner.py is gui.cpp with integrated gui 
