@@ -1,0 +1,6 @@
+Contributions of each group member:
+Vansh Vora- Class Data, clean function, main() function
+Kirtan Chauhan- comparedata function, deleting redundant file in clean function, main() function i/o, file.txt(input file)
+Samay Kharidia- deletefile function, fileEmpty function, getnoofmonthold function
+Akash Bhat- gui.py file, mainwithgui.cpp file
+Tanish Tanawala- Pseudocode
