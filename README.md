@@ -13,7 +13,6 @@
 | Tanish tanawala                   | 202301405  |
 | Akash bhat        |202301437
 
-# FOLDER CLEANER
 
  
 ## REPOSITORY FOR THE PROJECT:
