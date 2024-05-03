@@ -32,10 +32,10 @@
 ## Contributions
 
 - **VANSH:** 
-   - taking input from file.txt,main(),clean function,doc file and readme file,integration of gui with main code.  
+   - taking input from file.txt,main(),clean function,doc file and readme file.  
 
 - **KIRTAN:**
-   - rebundant file checking gui design.
+   - rebundant file checking gui designand and integration of gui.
 
 - **SAMAY:**
    - deletefile() , noofmonthold() and empty() functions.
