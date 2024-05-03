@@ -35,12 +35,11 @@
    - taking input from file.txt,main(),clean function,doc file and readme file,integration of gui with main code.  
 
 - **KIRTAN:**
-   - gui design.
+   - rebundant file checking gui design.
 
 - **SAMAY:**
    - deletefile() , noofmonthold() and empty() functions.
 
-- **TANISH:** 
-   - comparedate() and rebundant file checking code pseudocode.
+- **pseudocode.
 - **AKASH:**
    - gui design and mainwithgui code.
