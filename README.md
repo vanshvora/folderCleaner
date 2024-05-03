@@ -40,6 +40,6 @@
 - **SAMAY:**
    - deletefile() , noofmonthold() and empty() functions.
 
-- **pseudocode.
+- **TANISH pseudocode.
 - **AKASH:**
    - gui design and mainwithgui code.
