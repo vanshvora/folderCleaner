@@ -40,6 +40,7 @@
 - **SAMAY:**
    - deletefile() , noofmonthold() and empty() functions.
 
-- **TANISH** comparedate() and rebundant file checking code pseudocode.
+- **TANISH:**
+   - comparedate() and rebundant file checking code pseudocode.
 - **AKASH:**
    - gui design and mainwithgui code.
